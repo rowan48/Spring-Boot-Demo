@@ -1,11 +1,13 @@
 package com.example.test.shared.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.security.SecureRandom;
 import java.util.Random;
-
+@Component
 public class Utils {
     private final Random RANDOM = new SecureRandom();
-    private static final String ALPHAPET = "ABCD...789";
+    private static final String ALPHAPET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 
     public String generateUserId(int length){
