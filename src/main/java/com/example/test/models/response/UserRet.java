@@ -1,9 +1,26 @@
 package com.example.test.models.response;
 
+import com.example.test.models.request.AddressData;
+
+import java.util.List;
+
 public class UserRet {
     private String fullname;
     private String email;
     private String userId;
+    private List<AddressData> addresses;
+
+    public List<AddressData> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<AddressData> addresses) {
+        this.addresses = addresses;
+    }
+
+
+
+
 
     public String getUserId() {
         return userId;

@@ -1,11 +1,14 @@
 package com.example.test.shared.Dto;
 
+import com.example.test.models.request.AddressData;
+
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDto implements Serializable {
  private static  final long serialVersionUID =10l;
 
-    private int id;
+    private long id;
     private String userId;
     private String fullname;
     private String email;
@@ -14,6 +17,20 @@ public class UserDto implements Serializable {
     private String emailVerificationToken;
 
     private String emailVerificationStatus;
+    private List<AddressDto> addresses;
+
+    public List<AddressDto> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<AddressDto> addresses) {
+        this.addresses = addresses;
+    }
+
+
+
+
+
 
     public String getEncryptePassword() {
         return encryptePassword;
@@ -42,11 +59,11 @@ public class UserDto implements Serializable {
 
 
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

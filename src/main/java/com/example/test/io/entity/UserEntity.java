@@ -1,13 +1,12 @@
 package com.example.test.io.entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity(name="users")
 public class UserEntity implements  Serializable {
+    private static  final long serialVersionUID =10l;
     @Id
     @GeneratedValue
     private Long id;
@@ -21,11 +20,23 @@ public class UserEntity implements  Serializable {
     @Column(nullable = false)
     private String password;
 
+
+
+    @OneToMany(mappedBy = "useradresses",cascade=CascadeType.ALL)
+    private List<AddressEntity> addresses;
+
     private String encryptePassword;
     private String emailVerificationToken;
     private boolean emailVerificationStatus=false;
     public boolean isEmailVerificationStatus() {
         return emailVerificationStatus;
+    }
+    public List<AddressEntity> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<AddressEntity> addresses) {
+        this.addresses = addresses;
     }
 
     public void setEmailVerificationStatus(boolean emailVerificationStatus) {
