@@ -127,5 +127,10 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public UserDto getAddressByUser(String userId, String addressId) {
+        return null;
+    }
+
 
 }

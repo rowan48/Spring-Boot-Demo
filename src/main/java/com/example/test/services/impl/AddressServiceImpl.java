@@ -38,8 +38,10 @@ public class AddressServiceImpl implements AdressService {
         ModelMapper modelMapper = new ModelMapper();
         UserEntity userEntity =userRepository.findByUserId(id);
         if(userEntity==null )return  addressDtos;
-      Iterable<AddressEntity> addressEntities=  addressRepository.findAllByUserDetails(userEntity);
-      for(AddressEntity addressEntity: addressEntities){}
-        return null;
+      Iterable<AddressEntity> addressEntities=  addressRepository.findAllByuseradresses(userEntity);
+      for(AddressEntity addressEntity: addressEntities){
+          addressDtos.add(modelMapper.map(addressEntity,AddressDto.class));
+      }
+        return  addressDtos;
     }
 }
