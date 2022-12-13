@@ -83,4 +83,10 @@ public class UserController {
         //BeanUtils.copyProperties(createdUser, returneddata);
         return returneddata;
     }
+    @GetMapping(path = "users/{Userid}/address/{Addressid}")
+
+    public UserRet getAddressesForUser(@PathVariable String Userid ,@PathVariable String Addressid ){
+        userService.getAddressByUser();
+        return null;
+    }
 }
