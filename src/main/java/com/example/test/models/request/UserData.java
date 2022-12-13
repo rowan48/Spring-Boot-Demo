@@ -6,15 +6,18 @@ public class UserData {
     private String fullname;
     private String email;
     private String password;
-    private List<AddressData> addresses;
+    private List<AddressData> useradresses;
 
-    public List<AddressData> getAddresses() {
-        return addresses;
+    public List<AddressData> getUseradresses() {
+        return useradresses;
     }
 
-    public void setAddresses(List<AddressData> addresses) {
-        this.addresses = addresses;
+    public void setUseradresses(List<AddressData> useradresses) {
+        this.useradresses = useradresses;
     }
+
+
+
 
 
     public String getFullname() {

@@ -8,15 +8,19 @@ public class UserRet {
     private String fullname;
     private String email;
     private String userId;
-    private List<AddressData> addresses;
+    private List<AdressRet> useradresses;
 
-    public List<AddressData> getAddresses() {
-        return addresses;
+    public List<AdressRet> getUseradresses() {
+        return useradresses;
     }
 
-    public void setAddresses(List<AddressData> addresses) {
-        this.addresses = addresses;
+    public void setUseradresses(List<AdressRet> useradresses) {
+        this.useradresses = useradresses;
     }
+
+
+
+
 
 
 

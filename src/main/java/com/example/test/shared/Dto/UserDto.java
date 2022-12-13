@@ -17,15 +17,19 @@ public class UserDto implements Serializable {
     private String emailVerificationToken;
 
     private String emailVerificationStatus;
-    private List<AddressDto> addresses;
+    private List<AddressDto> useradresses;
 
-    public List<AddressDto> getAddresses() {
-        return addresses;
+    public List<AddressDto> getUseradresses() {
+        return useradresses;
     }
 
-    public void setAddresses(List<AddressDto> addresses) {
-        this.addresses = addresses;
+    public void setUseradresses(List<AddressDto> useradresses) {
+        this.useradresses = useradresses;
     }
+
+
+
+
 
 
 

@@ -6,15 +6,18 @@ public class AddressData {
     private String city;
     private String country;
     private String streetName;
-    private UserDto userDto;
+    private UserDto useradresses;
 
-    public UserDto getUserDto() {
-        return userDto;
+    public UserDto getUseradresses() {
+        return useradresses;
     }
 
-    public void setUserDto(UserDto userDto) {
-        this.userDto = userDto;
+    public void setUseradresses(UserDto useradresses) {
+        this.useradresses = useradresses;
     }
+
+
+
 
     public String getCity() {
         return city;

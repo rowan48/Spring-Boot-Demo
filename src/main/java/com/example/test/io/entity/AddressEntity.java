@@ -1,5 +1,6 @@
 package com.example.test.io.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.io.Serializable;
 public class AddressEntity implements Serializable {
     private static  final long serialVersionUID =10l;
     @Id
+    @GeneratedValue
     private Long id;
     @Column(nullable = false)
     private String city;
@@ -19,7 +21,9 @@ public class AddressEntity implements Serializable {
     @Column(nullable = false)
 
     private String streetName;
+
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "users_id")
     private UserEntity useradresses;
     public UserEntity getUseradresses() {

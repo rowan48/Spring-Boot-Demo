@@ -32,11 +32,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto createUser(UserDto userDto) {
         if(userRepository.findUserByEmail(userDto.getEmail())==null){
-            for(int i =0; i<userDto.getAddresses().size();i++){
-                AddressDto addressdto = userDto.getAddresses().get(i) ;
-                addressdto.setUserDto(userDto);
-                addressdto.setAddressId(utils.generateAddressId(30));
-                userDto.getAddresses().set(i,addressdto);
+            if(userDto.getUseradresses()!=null) {
+                for (int i = 0; i < userDto.getUseradresses().size(); i++) {
+                    AddressDto addressdto = userDto.getUseradresses().get(i);
+                    addressdto.setUseradresses(userDto);
+                    addressdto.setAddressId(utils.generateAddressId(30));
+                    userDto.getUseradresses().set(i, addressdto);
+                }
             }
             UserEntity userEntity ;
             ModelMapper modelMapper = new ModelMapper();
@@ -48,9 +50,9 @@ public class UserServiceImpl implements UserService {
             userEntity.setEncryptePassword("123");
             //userEntity.setAddresses(userDto.getAddressDtos());
             //bCryptPasswordEncoder.encode(userDto.getPassword())
-            UserEntity usersavedEntity = userRepository.save(userEntity);
-            userDto=modelMapper.map(usersavedEntity,UserDto.class);
-           // BeanUtils.copyProperties(userEntity, userDto);
+             userRepository.save(userEntity);
+            userDto=modelMapper.map(userEntity,UserDto.class);
+         // BeanUtils.copyProperties(userEntity, userDto);
         }else{
             throw new RuntimeException("user already exist");
         }

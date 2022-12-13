@@ -1,4 +1,5 @@
 package com.example.test.io.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -20,10 +21,20 @@ public class UserEntity implements  Serializable {
     @Column(nullable = false)
     private String password;
 
+    @OneToMany(mappedBy = "useradresses",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<AddressEntity> useradresses;
 
 
-    @OneToMany(mappedBy = "useradresses",cascade=CascadeType.ALL)
-    private List<AddressEntity> addresses;
+    public List<AddressEntity> getUseradresses() {
+        return useradresses;
+    }
+
+    public void setUseradresses(List<AddressEntity> useradresses) {
+        this.useradresses = useradresses;
+    }
+
+
 
     private String encryptePassword;
     private String emailVerificationToken;
@@ -31,13 +42,7 @@ public class UserEntity implements  Serializable {
     public boolean isEmailVerificationStatus() {
         return emailVerificationStatus;
     }
-    public List<AddressEntity> getAddresses() {
-        return addresses;
-    }
 
-    public void setAddresses(List<AddressEntity> addresses) {
-        this.addresses = addresses;
-    }
 
     public void setEmailVerificationStatus(boolean emailVerificationStatus) {
         this.emailVerificationStatus = emailVerificationStatus;

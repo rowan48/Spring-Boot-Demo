@@ -6,6 +6,7 @@ public class AdressRet {
     private String addressId;
     private String city;
     private String country;
+    private String streetName;
   //  private UserDto userDto;
 
 //    public UserDto getUserDto() {
@@ -48,5 +49,5 @@ public class AdressRet {
         this.streetName = streetName;
     }
 
-    private String streetName;
+
 }
