@@ -4,8 +4,11 @@ import com.example.test.shared.Dto.AddressDto;
 import com.example.test.shared.Dto.UserDto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 public interface AdressService {
     AddressDto getAddtessById(String id);
+   List<AddressDto> getAddressByUser(String id);
 
 }
