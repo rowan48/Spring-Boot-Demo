@@ -1,6 +1,5 @@
 package com.example.test.services.impl;
 
-import com.example.test.models.request.AddressData;
 import com.example.test.services.UserService;
 import com.example.test.io.repository.UserRepository;
 import com.example.test.io.entity.UserEntity;
@@ -18,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -130,6 +130,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getAddressByUser(String userId, String addressId) {
         return null;
+    }
+
+    @Override
+    public List<Objects[]> findUserEntitiesByEmail(String email) {
+        List<Objects[]> myUsers= userRepository.findUserEntitiesByEmail(email);
+        return myUsers;
     }
 
 

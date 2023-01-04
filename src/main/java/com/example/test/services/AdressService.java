@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public interface AdressService {
-    AddressDto getAddtessById(String id);
+    AddressDto getAddressById(String id);
    List<AddressDto> getAddressByUser(String id);
 
 }

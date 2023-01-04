@@ -21,7 +21,7 @@ public class AddressServiceImpl implements AdressService {
     @Autowired
     UserRepository userRepository;
     @Override
-    public AddressDto getAddtessById(String id) {
+    public AddressDto getAddressById(String id) {
         AddressEntity addressEntity;
         AddressDto addressDto;
         ModelMapper modelMapper = new ModelMapper();

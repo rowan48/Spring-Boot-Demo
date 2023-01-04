@@ -29,7 +29,7 @@ public class AddressController {
     public AdressRet getAddress(@PathVariable String id){
         AdressRet returneddata;
         AddressDto addressDto ;
-        addressDto=adressService.getAddtessById(id);
+        addressDto=adressService.getAddressById(id);
         ModelMapper modelMapper = new ModelMapper();
         returneddata=modelMapper.map(addressDto,AdressRet.class);
         return returneddata;

@@ -1,8 +1,9 @@
 package com.example.test.models.response;
 
 import com.example.test.shared.Dto.UserDto;
+import org.springframework.hateoas.RepresentationModel;
 
-public class AdressRet {
+public class AdressRet extends RepresentationModel<AdressRet> {
     private String addressId;
     private String city;
     private String country;

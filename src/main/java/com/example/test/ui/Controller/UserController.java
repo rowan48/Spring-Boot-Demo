@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static com.example.test.models.response.ErrorMessages.MISSING_REQUIRED_FIELD;
 
@@ -65,7 +66,15 @@ public class UserController {
    // BeanUtils.copyProperties(createdUser, returneddata);
     return returneddata;
     }
-@DeleteMapping(path = "/{id}")
+
+    @GetMapping(path = "/email/{email}")
+    public List<Objects[]> findUserEntitiesByEmail(@PathVariable String email) throws Exception {
+      //  if(email.equals(""))throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage());
+       List<Objects[]> users = userService.findUserEntitiesByEmail(email);
+        return users;
+    }
+
+        @DeleteMapping(path = "/{id}")
     public void deleteUser(@PathVariable String id){
     userService.deleteUser(id);
     }
